@@ -46,8 +46,8 @@ public class Maze : MonoBehaviour
                                             new MapLocation(0,1),
                                             new MapLocation(-1,0),
                                             new MapLocation(0,-1) };
-    public int width = 60; //x length
-    public int depth = 60; //z length
+    public int width = 30; //x length
+    public int depth = 30; //z length
     public byte[,] map;
     public int scale = 6;
     public Material wallColour;
