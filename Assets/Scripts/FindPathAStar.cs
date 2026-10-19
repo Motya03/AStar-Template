@@ -13,6 +13,7 @@ public class PathMarker
     public float F;
     public GameObject marker;
     public PathMarker parent;
+  
 
 
     public PathMarker(MapLocation l, float g, float h, GameObject marker, PathMarker p)
@@ -55,6 +56,7 @@ public class PathMarker
 
 public class FindPathAStar : MonoBehaviour
 {
+    private bool canGetPath;
     public Maze maze;
     public Material closedMaterial;
     public Material openMaterial;
@@ -159,7 +161,8 @@ public class FindPathAStar : MonoBehaviour
         {
             done = true;
             CancelInvoke();
-            GetPath();
+            canGetPath = true;
+            //GetPath();
             return;
         }
 
@@ -391,7 +394,7 @@ public class FindPathAStar : MonoBehaviour
             Search(lastPos);
         }
         //Si presionamos la letra "M" dejamos solo los pathMakers que forman el path optimo
-        if (Keyboard.current[Key.M].wasPressedThisFrame)
+        if (Keyboard.current[Key.M].wasPressedThisFrame && canGetPath)
         {
             GetPath();
         }
